@@ -18,4 +18,9 @@ INSERT INTO bam.tb_autor(nm_autor)VALUES ('Augusto Cury');
 INSERT INTO bam.tb_editora(nm_editora)VALUES ('Sextante');
 INSERT INTO bam.tb_editora(nm_editora)VALUES ('Saraiva');
 INSERT INTO bam.tb_editora(nm_editora)VALUES ('Cultura');
+INSERT INTO bam.tb_editora(nm_editora)VALUES ('Ática');
+INSERT INTO bam.tb_editora(nm_editora)VALUES ('Abril');
+INSERT INTO bam.tb_editora(nm_editora)VALUES ('Leitura');
+INSERT INTO bam.tb_editora(nm_editora)VALUES ('Arqueiro');
+
 
