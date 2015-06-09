@@ -15,12 +15,15 @@ import negocio.AutorBO;
 public abstract class BeanAbstrato {
     
     protected static final String USUARIO_LOGADO = "usuarioLogado";
+    protected static final String STRING_BRANCO = "";
     
-    protected static final String TELA_PRINCIPAL = "/consultarObras";
-    protected static final String TELA_LOGIN = "/login";
+    protected static final String TELA_PRINCIPAL = "/publico/consultarObras";
+    protected static final String TELA_LOGIN = "/publico/login";
     
     protected static final String TELA_CONSULTA_AUTOR = "/restrito/manterAutor/consulta";
     protected static final String TELA_INCLUSAO_AUTOR = "/restrito/manterAutor/novo";
+    
+    protected static final String TELA_INCLUSAO_OBRA = "/restrito/manterObra/novo";
 
     protected void adicionaMensagemInfo(InfoException info) {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, Constantes.SUCESSO, info.getMessage()));

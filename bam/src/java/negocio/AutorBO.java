@@ -13,43 +13,40 @@ import exception.GenericaException;
  * @author Jacob Vilar
  */
 public class AutorBO {
-    private AutorDAO getAutorDAO() {
-        return new AutorDAO();
-    }
     
     public void incluir(Autor autor) throws ErroException {
         try {
-            getAutorDAO().incluir(autor);
+            AutorDAO.getInstance().incluir(autor);
         } catch (Exception e) {
             new ErroException(e.getMessage());
         }
     }
 
     public void alterar(Autor autor) throws Exception {
-        getAutorDAO().alterar(autor);
+        AutorDAO.getInstance().alterar(autor);
     }
 
     public void excluir(Integer id) throws Exception {
-        getAutorDAO().excluir(id);
+        AutorDAO.getInstance().excluir(id);
     }
 
     public Autor consultarPorId(Integer id) throws Exception {
-        return getAutorDAO().consultar(id);
+        return AutorDAO.getInstance().consultar(id);
     }
 
     public List<Autor> consultarPorNome(String nome) throws GenericaException, Exception {
-        List<Autor> autores = getAutorDAO().consultarPorNome(nome);
+        List<Autor> autores = AutorDAO.getInstance().consultarPorNome(nome);
         if(autores == null || autores.isEmpty()) {
             throw new AlertaException(Constantes.MSGA2);
         }
-        return getAutorDAO().consultarPorNome(nome);
+        return autores;
     }
 
     public List<Autor> listar() throws Exception {
-        return getAutorDAO().listar();
+        return AutorDAO.getInstance().listar();
     }
 
     public List<Autor> consultarPorExemplo(Autor autor) throws Exception {
-        return getAutorDAO().consultarPorExemplo(autor);
+        return AutorDAO.getInstance().consultarPorExemplo(autor);
     }
 }

@@ -3,11 +3,14 @@ package dados.entidade;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -22,16 +25,19 @@ public class Obra implements Serializable {
     @Column(name = "id_obra")
     private Integer idObra;
 
-    @Column(name = "id_editora")
+    @JoinColumn(name = "id_editora")
+    @ManyToOne(fetch = FetchType.EAGER)
     private Editora editora;
 
-    @Column(name = "id_autor")
+    @JoinColumn(name = "id_autor")
+    @ManyToOne(fetch = FetchType.EAGER)
     private Autor autor;
 
     @Column(name = "ds_titulo")
     private String dsTitulo;
 
-    @Column(name = "id_tipo_obra")
+    @JoinColumn(name = "id_tipo_obra")
+    @ManyToOne(fetch = FetchType.EAGER)
     private TipoObra tipoObra;
 
     @Column(name = "qtd_exemplares")

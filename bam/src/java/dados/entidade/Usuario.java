@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * @author jacob.santana
  */
 @Entity
-@Table(name = "TB_USUARIO", schema = "bam")
+@Table(name = "tb_usuario", schema = "bam")
 public class Usuario implements Serializable {
 
     @Id
@@ -28,9 +28,6 @@ public class Usuario implements Serializable {
 
     @Column(name = "ds_senha")
     private String dsSenha;
-
-    @Column(name = "id_pessoa")
-    private Pessoa pessoa;
 
     public Integer getIdUsuario() {
         return idUsuario;
@@ -54,13 +51,5 @@ public class Usuario implements Serializable {
 
     public void setDsSenha(String dsSenha) {
         this.dsSenha = dsSenha;
-    }
-
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
-
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
     }
 }

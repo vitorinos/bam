@@ -13,6 +13,17 @@ public class AutorDAO implements DAO<Autor> {
 
     private Autor autor;
     private Criteria criteria;
+    private static AutorDAO instancia;
+
+    public static AutorDAO getInstance() {
+        if (instancia == null) {
+            instancia = new AutorDAO();
+        }
+        return instancia;
+    }
+
+    private AutorDAO() {
+    }
 
     @Override
     public void incluir(Autor autor) throws Exception {

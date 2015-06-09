@@ -17,7 +17,7 @@
         <session-timeout>5</session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>consultarObras.xhtml</welcome-file>
+        <welcome-file>publico/consultarObras.xhtml</welcome-file>
     </welcome-file-list>
     <!-- login filter --> 
     <filter> 

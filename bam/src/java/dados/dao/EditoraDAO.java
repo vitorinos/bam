@@ -8,11 +8,22 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-public class EditoraDAO implements DAO<Editora>{
+public class EditoraDAO implements DAO<Editora> {
+
     private Editora editora;
-    private List<Editora> editoras;
     private Criteria criteria;
-    
+    private static EditoraDAO instance;
+
+    public static EditoraDAO getInstance() {
+        if (instance == null) {
+            instance = new EditoraDAO();
+        }
+        return instance; 
+    }
+    private EditoraDAO() {
+        
+    }
+
     @Override
     public void incluir(Editora editora) throws Exception {
         getSessao().persist(editora);

@@ -13,8 +13,16 @@
                 font-size: 12px
             }
             .div-botoes{
-                border: 5px;
-                border-style: groove;
+                background    :#f7f7f7;
+                border-top    :1px dashed #ccc;
+                border-bottom :1px dashed #ccc;
+                margin-top    :20px;
+                padding       :5px;
+                text-align    :right;
+
+            }
+            .div-botoes > *{
+                margin-left: 78%;
             }
         </style>
     </h:head>
@@ -37,19 +45,19 @@
                                 <p:submenu label="Emprestimo" rendered="#{loginBean.usuarioLogado != null}">
                                     <p:menuitem value="Consultar" url="#" />
                                     <p:menuitem value="Novo" url="#"/>
-                                    <p:menuitem value="Agendamento" url="#" />
+                                    <p:menuitem value="Reserva" url="#" />
                                 </p:submenu>
                                 <p:submenu label="Obras">
-                                    <p:menuitem value="Consultar" url="#" />
+                                    <p:menuitem value="Consultar" action="#{obraBean.abrirFormConsulta()}" />
                                 </p:submenu>
                                 <p:menuitem value="Sair" icon="ui-icon-close" action="#{loginBean.sair()}" rendered="#{loginBean.usuarioLogado != null}"/>
-                                <p:menuitem value="Entrar" icon="ui-icon-open" action="#{loginBean.abrirFormLogin()}" rendered="#{loginBean.usuarioLogado == null}"/>
+                                <p:menuitem value="Entrar" icon="ui-icon-open" action="/publico/login" rendered="#{loginBean.usuarioLogado == null}"/>
                             </p:menubar>
                             <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
                         </h:form>
                     </ui:insert>
                     <ui:insert name="centro">
-                        
+
                     </ui:insert>
                 </p:layoutUnit>  
             </p:layout>  

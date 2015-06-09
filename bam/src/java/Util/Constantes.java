@@ -3,7 +3,6 @@ package Util;
 public class Constantes {
 
     //Unidade de persistencia
-
     public static final String PERSISTENCE_UNIT_NAME = "bam_homologacao";
 
     //Propriedades dos objetos
@@ -33,6 +32,10 @@ public class Constantes {
     public static final String TIPO_ALUNO = "A";
     public static final String TIPO_PROFESSOR = "P";
     public static final String TIPO_FUNCIONARIO = "F";
+
+    //tipos de obra
+    public static final String ID_TIPO_OBRA = "idTipoObra";
+    public static final String NM_TIPO_OBRA = "nmTipoObra";
 
     //mensagens
     //sucesso
