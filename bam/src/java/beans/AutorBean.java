@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import negocio.AutorBO;
 
 /**
  *
@@ -37,7 +38,7 @@ public class AutorBean extends BeanAbstrato implements Serializable {
 
     public void salvar() {
         try {
-            getAutorBO().incluir(autor);
+            AutorBO.getInstance().incluir(autor);
             limpar();
             adicionaMensagemInfo(new InfoException(Constantes.MSGS1));
         } catch (ErroException e) {
@@ -47,7 +48,7 @@ public class AutorBean extends BeanAbstrato implements Serializable {
 
     public void consultar() {
         try {
-            autores = getAutorBO().consultarPorNome(autor.getNmAutor());
+            autores = AutorBO.getInstance().consultarPorNome(autor.getNmAutor());
         } catch (AlertaException alerta) {
             adicionaMensagemAlerta(alerta);
         }catch(Exception e) {

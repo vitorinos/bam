@@ -8,26 +8,26 @@
         <ui:define name="centro">
             <h:form>
                 <h:panelGrid columns="8" cellspacing="5" >
+                    <h:outputLabel value="Tipo: "/>
+                    <h:selectOneMenu value="#{obraBean.obraCadastro.tipoObra.idTipoObra}" >
+                        <f:selectItem itemValue="" itemLabel=""/>
+                        <f:selectItems value="#{obraBean.tiposDeObra}" var="to" itemValue="#{to.idTipoObra}" itemLabel="#{to.nmTipoObra}"/>
+                    </h:selectOneMenu>
                     <h:outputLabel value="Editora: "/>
-                    <h:selectOneMenu value="#{obraBean.obra.editora.idEditora}">
+                    <h:selectOneMenu value="#{obraBean.obraCadastro.editora.idEditora}">
                         <f:selectItem itemValue="" itemLabel=""/>
                         <f:selectItems value="#{obraBean.editoras}" var="edit" itemLabel="#{edit.nmEditora}" itemValue="#{edit.idEditora}" />
                     </h:selectOneMenu>
                     <h:outputLabel value="Autor: "/>
-                    <h:selectOneMenu value="#{obraBean.obra.autor.idAutor}" >
+                    <h:selectOneMenu value="#{obraBean.obraCadastro.autor.idAutor}" >
                         <f:selectItem itemValue="" itemLabel=""/>
                         <f:selectItems value="#{obraBean.autores}" var="aut" itemValue="#{aut.idAutor}" itemLabel="#{aut.nmAutor}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="Tipo: "/>
-                    <h:selectOneMenu value="#{obraBean.obra.tipoObra.idTipoObra}" >
-                        <f:selectItem itemValue="" itemLabel=""/>
-                        <f:selectItems value="#{obraBean.tiposDeObra}" var="to" itemValue="#{to.idTipoObra}" itemLabel="#{to.nmTipoObra}"/>
                     </h:selectOneMenu>
                     <h:outputLabel value="Título: "/>
                     <h:inputText id="nome"
                                  size="20"
                                  maxlength="50"
-                                 value="#{obraBean.obra.dsTitulo}"/>
+                                 value="#{obraBean.obraCadastro.dsTitulo}"/>
                 </h:panelGrid>
                 <div class="div-botoes">
                     <h:panelGrid columns="3">

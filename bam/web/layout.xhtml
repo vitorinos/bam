@@ -51,7 +51,7 @@
                                     <p:menuitem value="Consultar" action="#{obraBean.abrirFormConsulta()}" />
                                 </p:submenu>
                                 <p:menuitem value="Sair" icon="ui-icon-close" action="#{loginBean.sair()}" rendered="#{loginBean.usuarioLogado != null}"/>
-                                <p:menuitem value="Entrar" icon="ui-icon-open" action="/publico/login" rendered="#{loginBean.usuarioLogado == null}"/>
+                                <p:menuitem value="Entrar" icon="ui-icon-open" url="/publico/login.xhtml" rendered="#{loginBean.usuarioLogado == null}"/>
                             </p:menubar>
                             <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
                         </h:form>

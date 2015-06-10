@@ -9,6 +9,7 @@ import exception.GenericaException;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import negocio.LoginBO;
@@ -38,25 +39,25 @@ public class LoginBean extends BeanAbstrato implements Serializable {
         return TELA_LOGIN;
     }
 
-    public String autenticar() {
-        String retorno = null;
+    public void autenticar() {
         try {
             validarCamposObrigatorios();
             Usuario usuarioBD = LoginBO.getInstance().isUsuarioValido(usuario);
             if (usuarioBD != null) {
-                retorno = TELA_PRINCIPAL;
                 SessionContext.getInstance().setAttribute(USUARIO_LOGADO, usuarioBD);
+                redireciona(TELA_PRINCIPAL);
             } else {
                 adicionaMensagemAlerta(new AlertaException(Constantes.LOGIN_INVALIDO));
                 FacesContext.getCurrentInstance().validationFailed();
-                retorno = TELA_LOGIN;
+                redireciona(TELA_LOGIN);
             }
         } catch (AlertaException a) {
             adicionaMensagemAlerta(a);
         } catch (GenericaException g) {
             adicionaMensagemErro(new ErroException(g.getMessage()));
+        } catch (Exception e) {
+            
         }
-        return retorno;
     }
 
     private void validarCamposObrigatorios() throws AlertaException {
@@ -65,13 +66,15 @@ public class LoginBean extends BeanAbstrato implements Serializable {
         }
     }
 
-    public String sair() {
+    public void sair() {
         try {
             SessionContext.getInstance().encerrarSessao();
+            FacesContext ctx = FacesContext.getCurrentInstance();
+            ExternalContext extContext = ctx.getExternalContext();
+            extContext.redirect(TELA_PRINCIPAL);
         } catch (Exception e) {
             adicionaMensagemErro(new ErroException(e.getMessage()));
         }
-        return TELA_PRINCIPAL;
     }
 
     public void limpar() {

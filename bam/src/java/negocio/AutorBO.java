@@ -14,6 +14,18 @@ import exception.GenericaException;
  */
 public class AutorBO {
     
+    private static AutorBO instance;
+
+    private AutorBO() {
+    }
+    
+    public static AutorBO getInstance() {
+        if (instance == null) {
+            instance = new AutorBO();
+        }
+        return instance;
+    }
+    
     public void incluir(Autor autor) throws ErroException {
         try {
             AutorDAO.getInstance().incluir(autor);
